@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع مواد جامعية </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap"></i> نظام المواد الجامعية</h1>
+            <p>موقع لمتابعة المواد الجامعية وحساب المعدل التراكمي</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="university-info">
+            <h2>معلومات الطالب</h2>
+            <div class="student-card">
+                <div class="student-info">
+                    <div class="student-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="student-details">
+                        <h3>أحمد محمد</h3>
+                        <p>قسم علوم الحاسب - السنة الثالثة</p>
+                        <p>الرقم الجامعي: 202100123</p>
+                    </div>
+                </div>
+                <div class="gpa-info">
+                    <h3>المعدل التراكمي الحالي</h3>
+                    <div class="gpa-value">3.75</div>
+                    <p>من 4.0</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="add-subject">
+            <h2><i class="fas fa-plus-circle"></i> إضافة مادة جديدة</h2>
+            <form id="subjectForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subjectName">اسم المادة:</label>
+                        <input type="text" id="subjectName" placeholder="أدخل اسم المادة" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectCode">رمز المادة:</label>
+                        <input type="text" id="subjectCode" placeholder="مثل: CS101" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subjectHours">عدد الساعات:</label>
+                        <select id="subjectHours" required>
+                            <option value="">اختر عدد الساعات</option>
+                            <option value="1">ساعة واحدة</option>
+                            <option value="2">ساعتين</option>
+                            <option value="3">ثلاث ساعات</option>
+                            <option value="4">أربع ساعات</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectGrade">الدرجة المتوقعة:</label>
+                        <select id="subjectGrade" required>
+                            <option value="">اختر الدرجة المتوقعة</option>
+                            <option value="4">أ (4 نقاط)</option>
+                            <option value="3.75">ب+ (3.75 نقطة)</option>
+                            <option value="3.5">ب (3.5 نقطة)</option>
+                            <option value="3">ج+ (3 نقاط)</option>
+                            <option value="2.5">ج (2.5 نقطة)</option>
+                            <option value="2">د+ (2 نقطة)</option>
+                            <option value="1.5">د (1.5 نقطة)</option>
+                            <option value="0">ف (0 نقطة)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="subjectDesc">وصف المادة (اختياري):</label>
+                        <textarea id="subjectDesc" rows="3" placeholder="أدخل وصفًا مختصرًا للمادة..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-book-medical"></i> إضافة المادة
+                </button>
+            </form>
+        </section>
+
+        <section class="subjects-list">
+            <h2><i class="fas fa-book-open"></i> المواد المسجلة</h2>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">جميع المواد</button>
+                <button class="filter-btn" data-filter="core">متطلبات تخصص</button>
+                <button class="filter-btn" data-filter="elective">متطلبات اختيارية</button>
+                <button class="filter-btn" data-filter="university">متطلبات جامعة</button>
+            </div>
+            
+            <div id="subjectsContainer" class="subjects-container">
+                <!-- تضافة المواد هنا ديناميكيا -->
+            </div>
+            
+            <div class="summary">
+                <div class="summary-item">
+                    <span>إجمالي المواد:</span>
+                    <strong id="totalSubjects">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>إجمالي الساعات:</span>
+                    <strong id="totalHours">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>المعدل الفصلي المتوقع:</span>
+                    <strong id="expectedGPA">0.00</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>  Made by SALMA &copy; <span id="currentYear">2023</span> - تم التطوير باستخدام HTML, CSS, JavaScript</p>
+            <p class="footer-links">
+                <a href="#"><i class="fas fa-envelope"></i> التواصل</a> |
+                <a href="#"><i class="fas fa-info-circle"></i> حول المشروع</a> |
+                <a href="#"><i class="fas fa-download"></i> تصدير البيانات</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
